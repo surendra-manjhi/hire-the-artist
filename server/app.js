@@ -1,9 +1,8 @@
-const express = require("express");
+import express from "express";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
-app.get("/", (req, res) => {
-	return res.status(200).send("Done!");
-});
+app.use("/api/v1", userRouter);
 
-module.exports = app;
+export default app;
