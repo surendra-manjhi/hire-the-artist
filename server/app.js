@@ -1,12 +1,23 @@
 import express from "express";
-import userRouter from "./routes/user.route.js";
-import authRouter from "./routes/auth.route.js";
+import userRoutes from "./routes/user.route.js";
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
 
 app.use(express.json());
 
-app.use("/api/v1/users", userRouter);
-app.use("/api/auth", authRouter);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/auth", authRoutes);
+
+app.use((err, req, res, next) => {
+	const statusCode = err.statusCode || 500;
+	const message = err.message || "Internal Server Error";
+
+	res.status(statusCode).json({
+		success: false,
+		statusCode,
+		message,
+	});
+});
 
 export default app;
