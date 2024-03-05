@@ -47,7 +47,7 @@ function Signup() {
 	return (
 		<div className="text-center h-screen">
 			<div className="border-2 p-2 rounded mt-12 inline-block">
-				<form className=" flex gap-2 flex-col">
+				<form className=" flex gap-2 flex-col" onSubmit={handleSubmit}>
 					<div>
 						<input
 							type="text"
@@ -82,7 +82,6 @@ function Signup() {
 					<button
 						className="bg-slate-600 rounded text-white py-1"
 						type="submit"
-						onClick={handleSubmit}
 						disabled={loading}
 					>
 						Submit
