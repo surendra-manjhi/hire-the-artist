@@ -45,7 +45,7 @@ function Signup() {
 	};
 
 	return (
-		<div className="text-center ">
+		<div className="text-center h-screen">
 			<div className="border-2 p-2 rounded mt-12 inline-block">
 				<form className=" flex gap-2 flex-col">
 					<div>
