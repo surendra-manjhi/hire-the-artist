@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 function Signup() {
 	const [formData, setFormData] = useState({});
@@ -86,6 +87,8 @@ function Signup() {
 					>
 						Submit
 					</button>
+
+					<OAuth />
 
 					<Link to="/signin" className="underline text-blue-600">
 						Sign In

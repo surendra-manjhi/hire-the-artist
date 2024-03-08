@@ -6,6 +6,7 @@ import {
 	signInSuccess,
 	signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 function Signin() {
 	const [formData, setFormData] = useState({});
@@ -80,6 +81,8 @@ function Signin() {
 					>
 						Submit
 					</button>
+
+					<OAuth />
 
 					<Link to="/signup" className="underline text-blue-600">
 						Sign Up

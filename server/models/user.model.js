@@ -16,6 +16,11 @@ const userSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		profilePicture: {
+			type: String,
+			default:
+				"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg",
+		},
 	},
 	{
 		timestamps: true,
