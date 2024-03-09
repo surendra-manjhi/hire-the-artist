@@ -54,7 +54,7 @@ function Header() {
 								<div className="gap-1 flex flex-col items-start">
 									<button>
 										<Link
-											to="/profile"
+											to="/dashboard"
 											className="px-4 py-1 border-2 border-black rounded-full hover:bg-black block hover:text-white"
 										>
 											Profile
