@@ -46,15 +46,17 @@ function Signup() {
 	};
 
 	return (
-		<div className="text-center h-screen">
-			<div className="border-2 p-2 rounded mt-12 inline-block">
+		<div className="h-screen text-center mt-36">
+			<div className="border-2 border-black p-2 rounded inline-block">
+				<h1 className="text-2xl text-left mb-2">Join</h1>
+
 				<form className=" flex gap-2 flex-col" onSubmit={handleSubmit}>
 					<div>
 						<input
 							type="text"
 							name="username"
 							id="username"
-							className="border-2"
+							className="border-2 p-1 rounded"
 							placeholder="Username"
 							onChange={handleChange}
 						/>
@@ -64,7 +66,7 @@ function Signup() {
 							type="email"
 							name="email"
 							id="email"
-							className="border-2"
+							className="border-2 p-1 rounded"
 							placeholder="Email"
 							onChange={handleChange}
 						/>
@@ -74,14 +76,14 @@ function Signup() {
 							type="password"
 							name="password"
 							id="password"
-							className="border-2"
+							className="border-2 p-1 rounded"
 							placeholder="Password"
 							onChange={handleChange}
 						/>
 					</div>
 
 					<button
-						className="bg-slate-600 rounded text-white py-1"
+						className="px-4 py-1 border-2 border-black  bg-black text-white rounded"
 						type="submit"
 						disabled={loading}
 					>

@@ -1,5 +1,5 @@
 function Home() {
-	return <div className="text-center">Home</div>;
+	return <div className="flex items-center justify-center h-screen text-3xl">Home</div>;
 }
 
 export default Home;
