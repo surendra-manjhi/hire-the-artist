@@ -1,7 +1,69 @@
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import {
+	getDownloadURL,
+	getStorage,
+	ref,
+	uploadBytesResumable,
+} from "firebase/storage";
+import { app } from "../firebase";
 
 function Profile() {
 	const { currentUser } = useSelector((state) => state.user);
+	const [imgFile, setImgFile] = useState(null);
+	const [imgFileUrl, setImgFileUrl] = useState(null);
+
+	const [imageFileUploadProgress, setImageFileUploadProgress] =
+		useState(null);
+	const [imageFileUploadError, setImageFileUploadError] = useState(null);
+
+	console.log(imageFileUploadError, imageFileUploadProgress, imgFileUrl);
+
+	const filePickerRef = useRef();
+
+	const handleImgChange = (e) => {
+		const file = e.target.files[0];
+
+		if (file) {
+			setImgFile(e.target.files[0]);
+			setImgFileUrl(URL.createObjectURL(file));
+		}
+	};
+
+	// useEffect(() => {
+	// 	if (imgFile) {
+	// 		uploadImage();
+	// 	}
+	// }, [imgFile]);
+
+	const uploadImage = async () => {
+		const storage = getStorage(app);
+		const fileName = new Date().getTime() + imgFile.name;
+		const storageRef = ref(storage, fileName);
+
+		const uploadTask = uploadBytesResumable(storageRef, imgFile);
+		uploadTask.on(
+			"state_changed",
+			(snapshot) => {
+				const progress =
+					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+				setImageFileUploadProgress(progress.toFixed(0));
+			},
+			(error) => {
+				setImageFileUploadError(
+					"Could not upload image (File must be less than 2MB or Image file type)"
+				);
+				setImgFile(null);
+				setImgFileUrl(null);
+			},
+			() => {
+				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+					setImgFileUrl(downloadURL);
+				});
+			}
+		);
+	};
 
 	return (
 		<div>
@@ -24,10 +86,21 @@ function Profile() {
 						className=" flex gap-2 flex-col"
 						// onSubmit={handleSubmit}
 					>
-						<div className="border-2 border-black w-20 aspect-auto overflow-hidden rounded cursor-pointer">
+						<div
+							className="border-2 border-black w-20 aspect-auto overflow-hidden rounded cursor-pointer"
+							onClick={() => filePickerRef.current.click()}
+						>
+							<input
+								hidden
+								type="file"
+								accept="image/*"
+								onChange={handleImgChange}
+								ref={filePickerRef}
+							/>
 							<img
-								src={currentUser.profilePicture}
+								src={imgFileUrl || currentUser.profilePicture}
 								alt="user-pic"
+								className="border-2 border-white rounded"
 							/>
 						</div>
 
@@ -66,13 +139,18 @@ function Profile() {
 
 						<button
 							className="px-4 py-1 border-2 border-black  bg-black text-white rounded"
-							type="submit"
+							type="button"
 							// disabled={loading}
+							onClick={uploadImage}
 						>
-							Submit
+							Update
 						</button>
 					</form>
 				</div>
+				
+				{imageFileUploadError && (
+					<div className="text-red-500 mt-4">{imageFileUploadError}</div>
+				)}
 			</div>
 		</div>
 	);

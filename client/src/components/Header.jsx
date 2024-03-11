@@ -36,12 +36,16 @@ function Header() {
 				{currentUser ? (
 					<div className="relative">
 						<div
-							className="border-2 border-black w-10 aspect-auto  overflow-hidden rounded-full cursor-pointer"
+							className="border-2 border-black w-12 aspect-auto overflow-hidden rounded-full cursor-pointer"
 							onClick={() => {
 								setDropdown(!dropdown);
 							}}
 						>
-							<img src={currentUser.profilePicture} alt="" />
+							<img
+								src={currentUser.profilePicture}
+								alt=""
+								className="border-2 border-white rounded-full"
+							/>
 						</div>
 
 						{dropdown && (
