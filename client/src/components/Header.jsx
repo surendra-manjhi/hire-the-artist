@@ -15,7 +15,7 @@ function Header() {
 			</div>
 
 			<nav className="flex gap-10 items-center">
-				<ul className="flex gap-10">
+				<ul className="hidden gap-10">
 					<li>
 						<Link to={"/explore"}>Explore</Link>
 					</li>
@@ -35,14 +35,14 @@ function Header() {
 
 				{currentUser ? (
 					<div className="relative">
-						<button
+						<div
 							className="border-2 border-black w-10 aspect-auto  overflow-hidden rounded-full cursor-pointer"
 							onClick={() => {
 								setDropdown(!dropdown);
 							}}
 						>
 							<img src={currentUser.profilePicture} alt="" />
-						</button>
+						</div>
 
 						{dropdown && (
 							<div className="absolute border-2 border-black p-4 right-0 mt-2 rounded bg-white flex flex-col gap-4">
@@ -54,7 +54,7 @@ function Header() {
 								<div className="gap-1 flex flex-col items-start">
 									<button>
 										<Link
-											to="/dashboard"
+											to="/profile"
 											className="px-4 py-1 border-2 border-black rounded-full hover:bg-black block hover:text-white"
 										>
 											Profile

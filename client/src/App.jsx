@@ -5,7 +5,7 @@ import Signup from "./pages/Signup";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
-import Dashboard from "./components/Dashboard";
+import Profile from "./pages/Profile";
 
 function App() {
 	return (
@@ -20,7 +20,7 @@ function App() {
 					<Route path="/signup" element={<Signup />} />
 
 					<Route element={<PrivateRoute />}>
-						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/profile" element={<Profile />} />
 					</Route>
 				</Routes>
 			</main>
