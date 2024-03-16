@@ -147,9 +147,11 @@ function Profile() {
 						</button>
 					</form>
 				</div>
-				
+
 				{imageFileUploadError && (
-					<div className="text-red-500 mt-4">{imageFileUploadError}</div>
+					<div className="text-red-500 mt-4">
+						{imageFileUploadError}
+					</div>
 				)}
 			</div>
 		</div>
