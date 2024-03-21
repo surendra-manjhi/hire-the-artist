@@ -12,6 +12,7 @@ function Profile() {
 	const { currentUser } = useSelector((state) => state.user);
 	const [imgFile, setImgFile] = useState(null);
 	const [imgFileUrl, setImgFileUrl] = useState(null);
+	const [formData, setFormData] = useState({});
 
 	const [imageFileUploadProgress, setImageFileUploadProgress] =
 		useState(null);
@@ -60,10 +61,17 @@ function Profile() {
 			() => {
 				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
 					setImgFileUrl(downloadURL);
+					setFormData({ ...formData, profilePicture: downloadURL });
 				});
 			}
 		);
 	};
+
+	const handleChange = (e) => {
+		setFormData({ ...formData, [e.target.id]: e.target.value });
+	};
+
+	console.log(formData);
 
 	return (
 		<div>
@@ -106,24 +114,24 @@ function Profile() {
 
 						<div>
 							<input
-								value={currentUser.username}
+								defaultValue={currentUser.username}
 								type="text"
 								name="username"
 								id="username"
 								className="border-2 p-1 rounded"
 								placeholder="Username"
-								// onChange={handleChange}
+								onChange={handleChange}
 							/>
 						</div>
 						<div>
 							<input
-								value={currentUser.email}
+								defaultValue={currentUser.email}
 								type="email"
 								name="email"
 								id="email"
 								className="border-2 p-1 rounded"
 								placeholder="Email"
-								// onChange={handleChange}
+								onChange={handleChange}
 							/>
 						</div>
 						<div>
@@ -133,7 +141,7 @@ function Profile() {
 								id="password"
 								className="border-2 p-1 rounded"
 								placeholder="Password"
-								// onChange={handleChange}
+								onChange={handleChange}
 							/>
 						</div>
 

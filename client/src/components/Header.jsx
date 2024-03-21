@@ -7,29 +7,26 @@ function Header() {
 	const [dropdown, setDropdown] = useState(false);
 
 	return (
-		<header className="px-8 py-4 flex items-center justify-between border-b-2 border-black text-lg">
+		<header className="px-16 py-4 flex items-center justify-between text-lg">
 			<div>
 				<Link to="/" className="text-2xl">
-					manjhss
+					<img src="/logo.png" alt="logo" />
 				</Link>
 			</div>
 
 			<nav className="flex gap-10 items-center">
-				<ul className="hidden gap-10">
+				<ul className="flex items-center gap-8 text-2xl">
 					<li>
 						<Link to={"/explore"}>Explore</Link>
 					</li>
 					<li className="flex items-center cursor-pointer">
 						Community
-						<span class="material-symbols-rounded">
+						<span class="material-symbols-rounded text-4xl">
 							arrow_drop_down
 						</span>
 					</li>
 					<li>
 						<Link to={"/pricing"}>Pricing</Link>
-					</li>
-					<li>
-						<Link to={"/about"}>About</Link>
 					</li>
 				</ul>
 
@@ -43,7 +40,7 @@ function Header() {
 						>
 							<img
 								src={currentUser.profilePicture}
-								alt=""
+								alt="user-profile"
 								className="border-2 border-white rounded-full"
 							/>
 						</div>
@@ -76,11 +73,11 @@ function Header() {
 						)}
 					</div>
 				) : (
-					<div className="flex gap-2">
+					<div className="flex gap-2 text-2xl">
 						<button>
 							<Link
 								to="/signin"
-								className="px-4 py-1 border-2 border-black rounded-full block hover:bg-black hover:text-white"
+								className="px-5 py-2 border-2 border-[#222831] rounded-full block hover:bg-[#222831] hover:text-white"
 							>
 								Sign In
 							</Link>
@@ -89,7 +86,7 @@ function Header() {
 						<button>
 							<Link
 								to="/signup"
-								className="px-4 py-1 border-2 border-black  bg-black block text-white rounded-full"
+								className="px-5 py-2 border-2 border-[#222831] bg-[#222831] block text-white rounded-full"
 							>
 								Join
 							</Link>
