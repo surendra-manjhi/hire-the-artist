@@ -10,22 +10,16 @@ import Profile from "./pages/Profile";
 function App() {
 	return (
 		<BrowserRouter>
-			<Header />
+			<Routes>
+				<Route path="/" element={<Home />} />
 
-			<main>
-				<Routes>
-					<Route path="/" element={<Home />} />
+				<Route path="/signin" element={<Signin />} />
+				<Route path="/signup" element={<Signup />} />
 
-					<Route path="/signin" element={<Signin />} />
-					<Route path="/signup" element={<Signup />} />
-
-					<Route element={<PrivateRoute />}>
-						<Route path="/profile" element={<Profile />} />
-					</Route>
-				</Routes>
-			</main>
-
-			<Footer />
+				<Route element={<PrivateRoute />}>
+					<Route path="/profile" element={<Profile />} />
+				</Route>
+			</Routes>
 		</BrowserRouter>
 	);
 }

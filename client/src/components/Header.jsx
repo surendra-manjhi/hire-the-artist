@@ -46,7 +46,7 @@ function Header() {
 						</div>
 
 						{dropdown && (
-							<div className="absolute border-2 border-black p-4 right-0 mt-2 rounded bg-white flex flex-col gap-4">
+							<div className="absolute border-2 border-black p-4 right-0 mt-2 rounded-lg bg-white flex flex-col gap-4">
 								<div className="border-b-2 pb-2">
 									<p>@{currentUser.username}</p>
 									<p>{currentUser.email}</p>

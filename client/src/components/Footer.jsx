@@ -12,12 +12,10 @@ function Footer() {
 						A platform which connects artist <br /> and commissioner
 						at your <br /> fingertips ✨
 					</p>
+
 					<ul className="mt-6 flex gap-3 items-center">
-						<li className="w-8">
+						<li className="w-8 rounded-lg overflow-hidden">
 							<img src="/sm_icons/insta.png" alt="" />
-						</li>
-						<li className="w-8">
-							<img src="/sm_icons/pinterest.png" alt="" />
 						</li>
 						<li className="w-9">
 							<img src="/sm_icons/discord.png" alt="" />

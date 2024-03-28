@@ -46,13 +46,13 @@ function Signup() {
 	};
 
 	return (
-		<div className="h-screen flex justify-center items-center">
+		<div className="h-screen flex justify-center items-center flex-col">
 			<div className="px-10 py-8 rounded-xl bg-[#222831] text-white">
 				<div className="mb-6">
 					<h1 className="text-4xl font-medium text-center mb-2">
 						Join
 					</h1>
-					<p className="text-xl text-gray-400 text-center">
+					<p className="text-xl text-gray-500 text-center">
 						Hey, Enter the details to get sign in to <br /> your
 						account.
 					</p>
@@ -65,7 +65,7 @@ function Signup() {
 								type="text"
 								name="username"
 								id="username"
-								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								className="auth-input"
 								placeholder="Username"
 								onChange={handleChange}
 							/>
@@ -75,7 +75,7 @@ function Signup() {
 								type="email"
 								name="email"
 								id="email"
-								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								className="auth-input"
 								placeholder="Email"
 								onChange={handleChange}
 							/>
@@ -85,7 +85,7 @@ function Signup() {
 								type="password"
 								name="password"
 								id="password"
-								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								className="auth-input"
 								placeholder="Password"
 								onChange={handleChange}
 							/>
@@ -101,22 +101,20 @@ function Signup() {
 							Sign Up
 						</button>
 
-						<div className="relative h-full">
-							<p className="text-xl text-center">Or</p>
-						</div>
+						<p className="text-xl text-center">Or</p>
 
 						<OAuth />
 					</div>
 
 					<p className="text-xl text-gray-500 text-center -mt-2">
 						Already have an account?{" "}
-						<Link to="/signin" className="underline text-white">
+						<Link to="/signin" className="hover:underline text-white">
 							Sign In
 						</Link>
 					</p>
 				</form>
 			</div>
-			{/* {errorMessage && <div className="text-red-500">{errorMessage}</div>} */}
+			{errorMessage && <div className="text-red-500">{errorMessage}</div>}
 		</div>
 	);
 }
