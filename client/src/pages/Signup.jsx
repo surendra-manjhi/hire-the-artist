@@ -46,58 +46,77 @@ function Signup() {
 	};
 
 	return (
-		<div className="h-screen text-center mt-36">
-			<div className="border-2 border-black p-2 rounded inline-block">
-				<h1 className="text-2xl text-left mb-2">Join</h1>
+		<div className="h-screen flex justify-center items-center">
+			<div className="px-10 py-8 rounded-xl bg-[#222831] text-white">
+				<div className="mb-6">
+					<h1 className="text-4xl font-medium text-center mb-2">
+						Join
+					</h1>
+					<p className="text-xl text-gray-400 text-center">
+						Hey, Enter the details to get sign in to <br /> your
+						account.
+					</p>
+				</div>
 
-				<form className=" flex gap-2 flex-col" onSubmit={handleSubmit}>
-					<div>
-						<input
-							type="text"
-							name="username"
-							id="username"
-							className="border-2 p-1 rounded"
-							placeholder="Username"
-							onChange={handleChange}
-						/>
+				<form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+					<div className="flex flex-col gap-3">
+						<div>
+							<input
+								type="text"
+								name="username"
+								id="username"
+								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								placeholder="Username"
+								onChange={handleChange}
+							/>
+						</div>
+						<div>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								placeholder="Email"
+								onChange={handleChange}
+							/>
+						</div>
+						<div>
+							<input
+								type="password"
+								name="password"
+								id="password"
+								className="rounded-md w-full text-2xl px-2 py-3 bg-gray-500/30 border-2 border-gray-500"
+								placeholder="Password"
+								onChange={handleChange}
+							/>
+						</div>
 					</div>
-					<div>
-						<input
-							type="email"
-							name="email"
-							id="email"
-							className="border-2 p-1 rounded"
-							placeholder="Email"
-							onChange={handleChange}
-						/>
-					</div>
-					<div>
-						<input
-							type="password"
-							name="password"
-							id="password"
-							className="border-2 p-1 rounded"
-							placeholder="Password"
-							onChange={handleChange}
-						/>
+
+					<div className="flex flex-col gap-3">
+						<button
+							className="w-full text-2xl bg-white text-black rounded-md px-2 py-3 font-medium"
+							type="submit"
+							disabled={loading}
+						>
+							Sign Up
+						</button>
+
+						<div className="relative h-full">
+							<p className="text-xl text-center">Or</p>
+						</div>
+
+						<OAuth />
 					</div>
 
-					<button
-						className="px-4 py-1 border-2 border-black  bg-black text-white rounded"
-						type="submit"
-						disabled={loading}
-					>
-						Submit
-					</button>
-
-					<OAuth />
-
-					<Link to="/signin" className="underline text-blue-600">
-						Sign In
-					</Link>
+					<p className="text-xl text-gray-500 text-center -mt-2">
+						Already have an account?{" "}
+						<Link to="/signin" className="underline text-white">
+							Sign In
+						</Link>
+					</p>
 				</form>
 			</div>
-			{errorMessage && <div className="text-red-500">{errorMessage}</div>}
+			{/* {errorMessage && <div className="text-red-500">{errorMessage}</div>} */}
 		</div>
 	);
 }

@@ -38,7 +38,7 @@ function OAuth() {
 	return (
 		<button
 			type="button"
-			className="bg-lime-700 border-2 border-lime-700 rounded text-white py-1"
+			className="w-full text-2xl bg-[#76ABAE] text-black rounded-md px-2 py-3 font-medium"
 			onClick={handleGoogleClick}
 		>
 			Continue with Google
