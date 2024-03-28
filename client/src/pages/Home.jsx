@@ -1,7 +1,7 @@
 function Home() {
 	return (
 		<div className="w-full h-full">
-			<section className="py-28 bg-[#222831] flex justify-center items-center flex-col gap-16 bg-[url('/add_on.png')] bg-no-repeat bg-center">
+			<section className="py-28 bg-[#222831] flex justify-center items-center flex-col gap-16 bg-[url('')] bg-no-repeat bg-center">
 				<h1 className="text-5xl text-center font-medium text-white">
 					Find & Hire <br /> Top 3% of Expert Artists <br /> on
 				</h1>

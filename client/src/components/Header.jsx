@@ -7,7 +7,7 @@ function Header() {
 	const [dropdown, setDropdown] = useState(false);
 
 	return (
-		<header className="px-16 py-4 flex items-center justify-between text-lg">
+		<header className="px-16 py-3 flex items-center justify-between text-lg">
 			<div>
 				<Link to="/" className="text-2xl">
 					<img src="/logo.png" alt="logo" />
